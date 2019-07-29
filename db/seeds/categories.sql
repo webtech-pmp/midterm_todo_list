@@ -1,8 +1,8 @@
-INSERT INTO categories (name) 
+INSERT INTO categories (name)
 VALUES ('Movies'),
 ('Books'),
-('Products'),
-('Restaurants');
+('Restaurants'),
+('Products');
 
 
 
