@@ -3,6 +3,3 @@ VALUES ('Movies'),
 ('Books'),
 ('Restaurants'),
 ('Products');
-
-
-
