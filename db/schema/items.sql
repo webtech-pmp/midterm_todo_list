@@ -5,6 +5,4 @@ CREATE TABLE items (
   name TEXT NOT NULL,
   done BOOLEAN 
 );
-
-
-
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;
