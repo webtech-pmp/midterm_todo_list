@@ -62,19 +62,19 @@ app.get("/index", (req, res) => {
 //TEST Yelp api call
 app.get("/add_item", (req, res) => {
   const TOKEN = 'ui-PokEWvbB2QxjP96b2B1lf7Lo9vbhBUvm1cWAolxsi7nfcS7dJ6WU34QQLjTw9_Mq5aBiGUodUVWcHtA6eKLlmzElLxwPxLVqIV_7z71ixxcAhtvUfdpZpZ5c7XXYx';
-  let options = {
-    url: 'https://api.yelp.com/v3/businesses/search?location=Vancouver',
+  const options = {
+    url: 'https://api.yelp.com/v3/businesses/search?location=Vancouver&categories=restaurants&term=' + req.query.item,
     headers: {
       'Authorization': 'Bearer ' + TOKEN
     }
   };
 
-  request(options, function(error, response, body) {
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    console.log('body:', JSON); // Print the HTML for the Google homepage.
-  });
-  res.render('index');
+  // const yelpRequest = request(options, function(error, response, body) {
+  //   const parsedBody = JSON.parse(body);
+  //   console.log('total yelp results:', parsedBody.total); // Print the HTML for the Google homepage.
+  // });
+
+  res.render('add_item');
 });
 
 app.listen(PORT, () => {
