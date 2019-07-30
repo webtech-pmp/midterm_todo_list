@@ -68,17 +68,14 @@ Move these afterwards
 app.get('/home', (req, res) => {
   res.render("home");
 
-})
+});
 // YELP
 app.post('/add_item', (req, res) => {
   const templateVars = {
-    location: location,
-    categories: 'restaurants',
-    term: term,
-    total: total
-  }
+    term: req.body.term,
+  };
   res.render('add_item', templateVars);
-})
+});
 
 //TEST Yelp api call
 app.get("/add_item", (req, res) => {
@@ -98,7 +95,7 @@ app.get("/add_item", (req, res) => {
 
   // res.render('add_item');
 
-  request(options, function (error, response, body) {
+  request(options, function(error, response, body) {
     console.log('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     console.log('body:', JSON); // Print the HTML for the Google homepage.
