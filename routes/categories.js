@@ -13,6 +13,7 @@ module.exports = (db) => {
     db.query(`SELECT * FROM categories;`)
       .then(data => {
         const categories = data.rows;
+        console.log(categories);
         res.json({
           categories
         });
@@ -27,3 +28,4 @@ module.exports = (db) => {
   });
   return router;
 };
+
