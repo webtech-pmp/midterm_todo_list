@@ -16,6 +16,14 @@
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <h1>Home</h1>
+
+    <form method="POST" action="<%=`/add_items`%>">
+    <textarea id='toDoListItem' name="text" placeholder="Add item ..."></textarea>
+        <button type="submit" class="btn btn-outline-primary">
+            submit
+        </button>
+    </form>
+
   </body>
 </html>
