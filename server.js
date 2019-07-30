@@ -91,21 +91,19 @@ app.get("/add_item", (req, res) => {
 
   };
 
-<<<<<<< HEAD
   // const yelpRequest = request(options, function(error, response, body) {
   //   const parsedBody = JSON.parse(body);
   //   console.log('total yelp results:', parsedBody.total); // Print the HTML for the Google homepage.
   // });
 
-  res.render('add_item');
-=======
+  // res.render('add_item');
+
   request(options, function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     console.log('body:', JSON); // Print the HTML for the Google homepage.
   });
   res.render('index');
->>>>>>> 702adaa040baa43c948050750af9055b645c8c02
 });
 
 app.listen(PORT, () => {
