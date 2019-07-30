@@ -40,3 +40,12 @@ LHL Node Skeleton
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- body-parser
+- chalk
+- dotenv
+- ejs
+- express
+- morgan
+- node-sass-middleware
+- pg-native
+- request
