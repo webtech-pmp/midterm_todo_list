@@ -1,0 +1,31 @@
+@import 'fonts';
+@import 'colors';
+
+article.wrapper {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(100px, auto);
+
+
+  .toSee_Movie {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .toRead_Book {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .toEat_Restaurant {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .toBuy_Product {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
