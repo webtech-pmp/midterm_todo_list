@@ -18,9 +18,26 @@
   <body>
     <h1>Add Item: <%= term %></h1>
     <h2>Select category</h2>
-   
+
     <form method="POST" action="/add_item">
       <input type="hidden" name="term" value="<%= term %>" />
+      <label>
+        <input type="text" name="category" value="1" />
+        Movies
+      </label>
+      <label>
+        <input type="text" name="category" value="2" />
+        Books
+      </label>
+      <label>
+        <input type="text" name="category" value="3" />
+        Products
+      </label>
+      <label>
+        <input type="text" name="category" value="4" />
+        Restaurants
+      </label>
+      <button type="submit" class="btn btn-primary">Submit</button>
 
 
 
