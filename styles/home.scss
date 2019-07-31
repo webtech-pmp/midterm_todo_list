@@ -5,20 +5,16 @@
 body {
   background-color: $purple;
 
+  // test
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    margin: 0 auto;
     width: 68vw;
 
     textarea#toDoListItem {
-      background-image: url("../images/plus.png");
-      background-repeat: no-repeat;
-      background-size: 40px 40px;
-      background-position: center;
-      // font-size: 13px;
-      // font-family: $font-family-text;
       margin-bottom: 1rem;
       border-radius: 4px;
     }
@@ -26,7 +22,9 @@ body {
     ::placeholder {
       color: $brightPurple;
       font-weight: bolder;
-      padding: 10px;
+      font-size: 2rem;
+      text-align: center;
+      background-color: $lightLavender;
     }
 
   }
