@@ -1,3 +1,5 @@
+//IMPORT PARTIALS
+
 @import 'fonts';
 @import 'colors';
 
@@ -10,6 +12,7 @@ header {
   // background-color: #251d3d; (dark purple)
   background-image: linear-gradient(to bottom, $purple, $brightPurple);
   height: 6.0rem;
+  font-family: 'Lato', sans-serif;
 }
 
 nav {

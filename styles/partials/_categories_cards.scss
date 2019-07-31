@@ -8,24 +8,83 @@ article.wrapper {
   grid-gap: 1rem;
   grid-auto-rows: minmax(100px, auto);
 
+  .categories {
+    width: 50%;
+  }
 
   .toSee_Movie {
     grid-column: 1;
     grid-row: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    img {
+      width: 50%;
+    }
   }
 
   .toRead_Book {
     grid-column: 2;
     grid-row: 1;
-  }
 
-  .toEat_Restaurant {
-    grid-column: 1;
-    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    img {
+      width: 50%;
+    }
   }
 
   .toBuy_Product {
+    grid-column: 1;
+    grid-row: 2;
+
+    .categories_icon {
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      margin: 0 auto;
+
+      img {
+        width: 50%;
+      }
+    }
+  }
+
+  .toEat_Restaurants {
     grid-column: 2;
     grid-row: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    img {
+      width: 50%;
+    }
+
   }
+
+
 }
+.right {
+  grid-row:2;
+}
+.left {
+  grid-row:1;
+}
+.top {
+  grid-column: 1;
+}
+.bottom {
+  grid-column: 2;
+}
+
