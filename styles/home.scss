@@ -1,3 +1,4 @@
+// IMPORT PARTIALS
 @import './partials/header';
 @import './partials/categories_cards';
 
@@ -9,7 +10,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    width: 60vw;
+    width: 68vw;
 
     textarea#toDoListItem {
       background-image: url("../images/plus.png");
