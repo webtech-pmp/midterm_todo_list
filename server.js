@@ -28,12 +28,25 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
   debug: true,
   outputStyle: 'expanded'
 }));
+
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
+
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+
+
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
@@ -51,13 +64,6 @@ app.use('/api/categories', categoriesRoutes(db));
 app.use('/api/items', itemsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-app.get("/index", (req, res) => {
-  res.render("index");
-});
 
 /* ---------------------
 
