@@ -1,0 +1,187 @@
+/* Typography */
+/* ================================
+=        Import Font Family       =
+================================ */
+@import url("https: //fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap");
+/* Colours */
+/* ================================
+=              Colours            =
+================================ */
+@import url("https: //fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap");
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#392447), to(#792BF9));
+  background-image: linear-gradient(to bottom, #392447, #792BF9);
+  height: 6.0rem;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#home {
+  width: 35px;
+  margin-left: 1rem;
+}
+
+#lists {
+  width: 35px;
+  margin-left: 3rem;
+}
+
+div.user-Info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#avatar {
+  width: 65px;
+  margin-left: 1rem;
+  margin-right: 1.5rem;
+}
+
+p.user {
+  font-weight: bolder;
+  font-size: 24px;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+/* Typography */
+/* ================================
+=        Import Font Family       =
+================================ */
+/* Colours */
+/* ================================
+=              Colours            =
+================================ */
+article.wrapper {
+  margin: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+article.wrapper .toSee_Movie {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+article.wrapper .toRead_Book {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+article.wrapper .toEat_Restaurant {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+article.wrapper .toBuy_Product {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+body {
+  background-color: #392447;
+}
+
+body form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 60vw;
+}
+
+body form textarea#toDoListItem {
+  background-image: url("../images/plus.png");
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: center;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+body form ::-webkit-input-placeholder {
+  color: #792BF9;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+body form :-ms-input-placeholder {
+  color: #792BF9;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+body form ::-ms-input-placeholder {
+  color: #792BF9;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+body form ::placeholder {
+  color: #792BF9;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+p {
+  color: #FFFFFF;
+}
+/*# sourceMappingURL=home.css.map */

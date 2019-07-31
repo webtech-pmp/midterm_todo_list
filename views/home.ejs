@@ -18,11 +18,14 @@
 
   <body>
    <% include partials/_header %>
+     <p>Item</p>
+
+  <% include partials/_categories_cards %>
 
     <form method="POST" action="/add_item">
     <textarea id='toDoListItem' name="term" placeholder="Add item ..."></textarea>
-        <button type="submit" class="btn btn-outline-primary">
-            submit
+        <button type="submit" class="btn btn-light btn-lg">
+            Submit
         </button>
     </form>
 

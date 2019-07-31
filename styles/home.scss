@@ -1,1 +1,36 @@
-@import './partials/header'
+@import './partials/header';
+@import './partials/categories_cards';
+
+body {
+  background-color: $purple;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 60vw;
+
+    textarea#toDoListItem {
+      background-image: url("../images/plus.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center;
+      // font-size: 13px;
+      // font-family: $font-family-text;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+
+    ::placeholder {
+      color: $brightPurple;
+      font-weight: bolder;
+      padding: 10px;
+    }
+
+  }
+}
+
+p {
+  color: #FFFFFF;
+}
