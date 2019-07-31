@@ -25,6 +25,7 @@ header {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#392447), to(#792BF9));
   background-image: linear-gradient(to bottom, #392447, #792BF9);
   height: 6.0rem;
+  font-family: 'Lato', sans-serif;
 }
 
 nav {
@@ -100,11 +101,31 @@ article.wrapper {
   grid-auto-rows: minmax(100px, auto);
 }
 
+article.wrapper .categories {
+  width: 50%;
+}
+
 article.wrapper .toSee_Movie {
   -ms-grid-column: 1;
   grid-column: 1;
   -ms-grid-row: 1;
   grid-row: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+article.wrapper .toSee_Movie img {
+  width: 50%;
 }
 
 article.wrapper .toRead_Book {
@@ -112,20 +133,92 @@ article.wrapper .toRead_Book {
   grid-column: 2;
   -ms-grid-row: 1;
   grid-row: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
-article.wrapper .toEat_Restaurant {
+article.wrapper .toRead_Book img {
+  width: 50%;
+}
+
+article.wrapper .toBuy_Product {
   -ms-grid-column: 1;
   grid-column: 1;
   -ms-grid-row: 2;
   grid-row: 2;
 }
 
-article.wrapper .toBuy_Product {
+article.wrapper .toBuy_Product .categories_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin: 0 auto;
+}
+
+article.wrapper .toBuy_Product .categories_icon img {
+  width: 50%;
+}
+
+article.wrapper .toEat_Restaurants {
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 2;
   grid-row: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+article.wrapper .toEat_Restaurants img {
+  width: 50%;
+}
+
+.right {
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+.left {
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+.top {
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.bottom {
+  -ms-grid-column: 2;
+  grid-column: 2;
 }
 
 body {
@@ -150,10 +243,6 @@ body form {
 }
 
 body form textarea#toDoListItem {
-  background-image: url("../images/plus.png");
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
-  background-position: center;
   margin-bottom: 1rem;
   border-radius: 4px;
 }
@@ -161,25 +250,33 @@ body form textarea#toDoListItem {
 body form ::-webkit-input-placeholder {
   color: #792BF9;
   font-weight: bolder;
-  padding: 10px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: #AE83FF;
 }
 
 body form :-ms-input-placeholder {
   color: #792BF9;
   font-weight: bolder;
-  padding: 10px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: #AE83FF;
 }
 
 body form ::-ms-input-placeholder {
   color: #792BF9;
   font-weight: bolder;
-  padding: 10px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: #AE83FF;
 }
 
 body form ::placeholder {
   color: #792BF9;
   font-weight: bolder;
-  padding: 10px;
+  font-size: 2rem;
+  text-align: center;
+  background-color: #AE83FF;
 }
 
 p {
