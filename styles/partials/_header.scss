@@ -1,0 +1,50 @@
+@import 'fonts';
+@import 'colors';
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  // background-color: #392447; (lighter purple)
+  // background-color: #251d3d; (dark purple)
+  background-image: linear-gradient(to right, $purple, $brightPurple);
+  height: 6.0rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#home {
+  width: 50px;
+  margin-left: 1rem;
+}
+
+#lists {
+  width: 50px;
+  margin-left: 3rem;
+}
+
+div.user-Info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#avatar {
+  width: 65px;
+  margin-left: 1rem;
+  margin-right: 1.5rem;
+}
+
+p.user {
+  font-weight: bolder;
+  font-size: 24px;
+  margin: 0;
+  color: #FFFFFF;
+}
