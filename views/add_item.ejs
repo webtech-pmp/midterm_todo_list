@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/vendor/bootstrap.min.css" type="text/css" />
 
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/add_item.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/vendor/bootstrap.min.js"></script>
@@ -16,7 +17,12 @@
   </head>
 
   <body>
-    <h1>Add Item: <%= term %></h1>
+    <!-- Partials -->
+      <% include partials/_header %>
+      <h1>Add Item: <%= term %></h1>
+       <!-- <% include partials/_categories_cards %> -->
+    <!-- Partials -->
+   
     <h2>Select category</h2>
 
     <form method="POST" action="/add_item">
