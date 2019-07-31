@@ -1,4 +1,3 @@
-
 @import 'fonts';
 @import 'colors';
 
@@ -13,20 +12,58 @@ article.wrapper {
   .toSee_Movie {
     grid-column: 1;
     grid-row: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    img {
+      width: 50%;
+    }
   }
 
   .toRead_Book {
     grid-column: 2;
     grid-row: 1;
-  }
 
-  .toEat_Restaurant {
-    grid-column: 1;
-    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    img {
+      width: 50%;
+    }
   }
 
   .toBuy_Product {
+    grid-column: 1;
+    grid-row: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    img {
+      width: 50%;
+    }
+  }
+
+  .toEat_Restaurants {
     grid-column: 2;
     grid-row: 2;
+
+    .flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+
+      img {
+        width: 50%;
+      }
+    }
   }
 }
