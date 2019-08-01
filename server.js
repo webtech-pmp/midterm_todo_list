@@ -70,7 +70,58 @@ Move these afterwards to routes file?
 -- -- -- -- -- -- -- -- -- -- - */
 
 app.get('/home', (req, res) => {
-  res.render("home");
+  const templateVars = {
+    itemAdded: req.query.added_item,
+  }
+  res.render("home", templateVars);
+});
+
+app.get('/category/restaurants', (req, res) => {
+  const selectItemsQuery = {
+    text: 'SELECT * FROM items WHERE id IN (SELECT item_id FROM category_item_mapping WHERE category_id = $4)',
+    values: [1],
+  };
+  db.query(selectItemsQuery)
+    .then(data => {
+      const templateVars = {
+        items: data.rows,
+      };
+      res.render("category_restaurants", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({
+          error: err.message
+        });
+    });
+});
+
+//TEST Yelp api call
+app.post("/add_item", (req, res) => {
+  const YELP_TOKEN = '4rgeJl4MWKT0_htmTNmRsp8crNmlf9RNVMlk97Gil4lIqb4InH7sqFB4b8UXiLmVLkerUeodJ20Ru141jC-yLgLrwVk7NiPthMT8KM3ZOTtWvOzpBpXXESmXSXc_XXYx';
+  const yelp = {
+    url: 'https://api.yelp.com/v3/businesses/search?location=Vancouver&categories=restaurants&term=' + req.body.item,
+    headers: {
+      'Authorization': 'Bearer ' + YELP_TOKEN
+    }
+  };
+  request(yelp, function (error, response, body) {
+    const isRestaurant = JSON.parse(body).total > 0;
+
+
+
+    const templateVars = {
+      term: req.body.term,
+      error: '',
+
+      restaurant: isRestaurant,
+    };
+
+    res.render('add_item', templateVars);
+  });
+  //   });
+  // });
 });
 
 /*
@@ -78,6 +129,7 @@ app.get('/home', (req, res) => {
 */
 
 app.post('/add_item', (req, res) => {
+<<<<<<< HEAD
   let category = req.body.category;
   if (!category || !category.length) {
     const templateVars = {
@@ -93,12 +145,20 @@ app.post('/add_item', (req, res) => {
 
   const addInQuery = {
     text: 'INSERT INTO items(name, done) VALUES ($1, $2)',
+=======
+  const templateVars = {
+    term: req.body.term,
+  };
+
+  const addItemQuery = {
+    text: 'INSERT INTO items(name, done) VALUES ($1, $2) RETURNING id',
+>>>>>>> 7c56aa784863528355c27bc1f3693bf9f7537aef
     values: [req.body.term, false],
   };
 
-  db.query(addInQuery)
+  db.query(addItemQuery)
     .then(data => {
-      const items = data.rows;
+      const itemsId = data.rows;
       // res.json({
       //   items
       // });
@@ -114,31 +174,6 @@ app.post('/add_item', (req, res) => {
   res.render('add_item', templateVars);
 });
 
-// //TEST Yelp api call
-// app.get("/add_item", (req, res) => {
-//   const TOKEN = 'ui-PokEWvbB2QxjP96b2B1lf7Lo9vbhBUvm1cWAolxsi7nfcS7dJ6WU34QQLjTw9_Mq5aBiGUodUVWcHtA6eKLlmzElLxwPxLVqIV_7z71ixxcAhtvUfdpZpZ5c7XXYx';
-//   const options = {
-//     url: 'https://api.yelp.com/v3/businesses/search?location=Vancouver&categories=restaurants&term=' + req.query.item,
-//     headers: {
-//       'Authorization': 'Bearer ' + TOKEN
-//     }
-
-//   };
-
-// const yelpRequest = request(options, function(error, response, body) {
-//   const parsedBody = JSON.parse(body);
-//   console.log('total yelp results:', parsedBody.total); // Print the HTML for the Google homepage.
-// });
-
-// res.render('add_item');
-
-//   request(options, function(error, response, body) {
-//     console.log('error:', error); // Print the error if one occurred
-//     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-//     console.log('body:', JSON); // Print the HTML for the Google homepage.
-//   });
-//   res.render('index');
-// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
