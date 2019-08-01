@@ -1,3 +1,6 @@
+@import './partials/header';
+@import './partials/categories_cards';
+
 nav {
   display: block;
   float: right;
@@ -11,7 +14,7 @@ nav {
 }
 
 body {
-  background-color: #251d3d;
+  background-color: #392447;
 }
 
 .row {
