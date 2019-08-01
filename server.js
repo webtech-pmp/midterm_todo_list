@@ -72,7 +72,7 @@ Move these afterwards to routes file?
 app.get('/home', (req, res) => {
   const templateVars = {
     itemAdded: req.query.added_item,
-  }
+  };
   res.render("home", templateVars);
 });
 
@@ -106,7 +106,7 @@ app.post("/add_item", (req, res) => {
       'Authorization': 'Bearer ' + YELP_TOKEN
     }
   };
-  request(yelp, function (error, response, body) {
+  request(yelp, function(error, response, body) {
     const isRestaurant = JSON.parse(body).total > 0;
 
 
@@ -141,13 +141,6 @@ app.post('/add_item', (req, res) => {
     };
     return res.render('add_item', templateVars);
   }
-
-  const addInQuery = {
-    text: 'INSERT INTO items(name, done) VALUES ($1, $2)',
-  const templateVars = {
-    term: req.body.term,
-  };
-
   const addItemQuery = {
     text: 'INSERT INTO items(name, done) VALUES ($1, $2) RETURNING id',
     values: [req.body.term, false],
