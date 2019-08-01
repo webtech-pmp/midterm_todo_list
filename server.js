@@ -10,6 +10,7 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
 const request = require('request');
+const parser = require('fast-xml-parser');
 
 // PG database client/connection setup
 const {
@@ -78,8 +79,8 @@ app.get('/home', (req, res) => {
 
 app.get('/category/restaurants', (req, res) => {
   const selectItemsQuery = {
-    text: 'SELECT * FROM items WHERE id IN (SELECT item_id FROM category_item_mapping WHERE category_id = $4)',
-    values: [1],
+    text: 'SELECT * FROM items WHERE id IN (SELECT item_id FROM category_item_mapping WHERE category_id = $1)',
+    values: [4],
   };
   db.query(selectItemsQuery)
     .then(data => {
@@ -97,45 +98,42 @@ app.get('/category/restaurants', (req, res) => {
     });
 });
 
-//TEST Yelp api call
+// API Calls
 app.post("/select_category", (req, res) => {
-  console.log('inside yelp add_item');
+  // Restaurant call
+  console.log('inside yelp add_item'); // remove once working
   const YELP_TOKEN = '4rgeJl4MWKT0_htmTNmRsp8crNmlf9RNVMlk97Gil4lIqb4InH7sqFB4b8UXiLmVLkerUeodJ20Ru141jC-yLgLrwVk7NiPthMT8KM3ZOTtWvOzpBpXXESmXSXc_XXYx';
   const yelp = {
-    url: 'https://api.yelp.com/v3/businesses/search?location=Vancouver&categories=restaurants&term=' + req.body.item,
+    url: 'https://api.yelp.com/v3/businesses/search?location=Vancouver&categories=restaurants&term=' + req.body.term,
     headers: {
       'Authorization': 'Bearer ' + YELP_TOKEN
     }
   };
-
-  console.log('inside omdb add_item');
+  // Movie call
+  console.log('inside omdb add_item'); // remove once working
   const OMDb_TOKEN = '236d915d';
   const omdb = {
-    url: 'http://www.omdbapi.com/?t=' + req.body.item,
-    headers: {
-      'Authorization': 'Bearer' + OMDb_TOKEN
-    }
+    url: 'http://www.omdbapi.com/?apikey=' + OMDb_TOKEN + '&t=' + req.body.term
   };
-
-  console.log('inside omdb add_item');
+  // Book call
+  console.log('inside goodreads add_item'); // remove once working
   const GOODREADS_TOKEN = 'hcXimhWDj8lzNDDmReOnw';
   const goodreads = {
-    url: 'https://www.goodreads.com/search.xml?title=' + req.body.item,
-    headers: {
-      'Authorization': 'Bearer' + GOODREADS_TOKEN
-    }
+    url: 'https://www.goodreads.com/search.xml?key=' + GOODREADS_TOKEN + '&q=' + req.body.term
   };
-
-  req(yelp, (error, res, body) => {
+  // Check if user term is in API database
+  request(yelp, (error, res, body) => {
     const isRestaurant = JSON.parse(body).total > 0
 
-    req(omdb, (error, res, body) => {
-      const isMovie = JSON.parse(body).response = false; // check if key value pairs are response:'False' or error: 'movie not found'
+    request(omdb, (error, res, body) => {
+      const isMovie = JSON.parse(body).response === 'True';
 
-      req(goodreads, (error, res, body) => {
-        const isBook = JSON.parse(body).total - results > 0 //check the key is total-results
+      request(goodreads, (error, res, body) => {
 
+        const isBook = parser.parse(body).GoodreadsResponse.search['total-results'] > 0;
 
+        // if user entry is not a restaurant, movie, or book
+        // then it is a product
         let isProduct = true;
         if (isRestaurant || isMovie || isBook) {
           isProduct = false;
@@ -163,7 +161,8 @@ app.post("/select_category", (req, res) => {
 app.post('/add_item', (req, res) => {
   let category = req.body.category;
   console.log('start of add_item route');
-  // Checking if no category was selected
+
+  // Check if no category was selected
   if (!category || !category.length) {
     const templateVars = {
       term: req.body.term,
@@ -182,7 +181,7 @@ app.post('/add_item', (req, res) => {
     values: [req.body.term, false],
   };
 
-  // Adding item to items table
+  // Add item to items table
   db.query(addItemQuery)
     .then(data => {
       const itemId = data.rows[0].id;
@@ -191,7 +190,7 @@ app.post('/add_item', (req, res) => {
         category = [category];
       }
 
-      // Adding category mapping for every chosen category
+      // Add category mapping for every chosen category
       category.forEach(categoryId => {
         const addCategoryQuery = {
           text: 'INSERT INTO category_item_mapping(category_id, item_id) VALUES ($1, $2)',
@@ -212,7 +211,6 @@ app.post('/add_item', (req, res) => {
       console.log(err);
     });
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
