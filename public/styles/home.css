@@ -69,10 +69,11 @@ article.wrapper {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
   grid-auto-rows: minmax(100px, auto);
+  font-size: 30px;
 }
 
 article.wrapper .categories {
-  width: 50%;
+  width: 150px;
 }
 
 article.wrapper .toSee_Movie {
@@ -82,10 +83,14 @@ article.wrapper .toSee_Movie {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 300px;
 }
 
 article.wrapper .toSee_Movie img {
-  width: 50%;
+  width: 150px;
 }
 
 article.wrapper .toRead_Book {
@@ -95,15 +100,23 @@ article.wrapper .toRead_Book {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 300px;
 }
 
 article.wrapper .toRead_Book img {
-  width: 50%;
+  width: 150px;
 }
 
 article.wrapper .toBuy_Product {
   grid-column: 1;
   grid-row: 2;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 300px;
 }
 
 article.wrapper .toBuy_Product .categories_icon {
@@ -115,7 +128,7 @@ article.wrapper .toBuy_Product .categories_icon {
 }
 
 article.wrapper .toBuy_Product .categories_icon img {
-  width: 50%;
+  width: 150px;
 }
 
 article.wrapper .toEat_Restaurants {
@@ -125,10 +138,14 @@ article.wrapper .toEat_Restaurants {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 300px;
 }
 
 article.wrapper .toEat_Restaurants img {
-  width: 50%;
+  width: 150px;
 }
 
 .right {
