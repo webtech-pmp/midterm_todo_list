@@ -2,12 +2,12 @@
 /* ================================
 =        Import Font Family       =
 ================================ */
-@import url("https: //fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap");
 /* Colours */
 /* ================================
 =              Colours            =
 ================================ */
-@import url("https: //fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap");
 header {
   display: flex;
   flex-direction: row;
@@ -175,11 +175,12 @@ body form {
   align-content: center;
   margin: 0 auto;
   width: 68vw;
+  border-radius: 20px;
 }
 
 body form textarea#toDoListItem {
   margin-bottom: 1rem;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 body form ::placeholder {
