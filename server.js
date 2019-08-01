@@ -109,7 +109,7 @@ app.post("/select_category", (req, res) => {
   };
 
   console.log('inside omdb add_item');
-  const OMDb_TOKEN = '236d915d'
+  const OMDb_TOKEN = '236d915d';
   const omdb = {
     url: 'http://www.omdbapi.com/?t=' + req.body.item,
     headers: {
@@ -117,7 +117,8 @@ app.post("/select_category", (req, res) => {
     }
   };
 
-  const GOODREADS_TOKEN = 'hcXimhWDj8lzNDDmReOnw'
+  console.log('inside omdb add_item');
+  const GOODREADS_TOKEN = 'hcXimhWDj8lzNDDmReOnw';
   const goodreads = {
     url: 'https://www.goodreads.com/search.xml?title=' + req.body.item,
     headers: {
@@ -125,22 +126,34 @@ app.post("/select_category", (req, res) => {
     }
   };
 
-  request(yelp, function (error, response, body) {
-    const isRestaurant = JSON.parse(body).total > 0;
+  req(yelp, (error, res, body) => {
+    const isRestaurant = JSON.parse(body).total > 0
 
-    const templateVars = {
-      term: req.body.term,
-      error: '',
-      movie: isMovie,
-      book: isBook,
-      product: isProduct,
-      restaurant: isRestaurant,
-    };
+    req(omdb, (error, res, body) => {
+      const isMovie = JSON.parse(body).response = false; // check if key value pairs are response:'False' or error: 'movie not found'
 
-    res.render('add_item', templateVars);
+      req(goodreads, (error, res, body) => {
+        const isBook = JSON.parse(body).total - results > 0 //check the key is total-results
+
+
+        let isProduct = true;
+        if (isRestaurant || isMovie || isBook) {
+          isProduct = false;
+        }
+
+        const templateVars = {
+          term: req.body.term,
+          error: '',
+          movie: isMovie,
+          book: isBook,
+          product: isProduct,
+          restaurant: isRestaurant,
+        };
+
+        res.render('add_item', templateVars);
+      });
+    });
   });
-  //   });
-  // });
 });
 
 /*
