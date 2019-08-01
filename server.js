@@ -106,7 +106,7 @@ app.post("/add_item", (req, res) => {
       'Authorization': 'Bearer ' + YELP_TOKEN
     }
   };
-  request(yelp, function(error, response, body) {
+  request(yelp, function (error, response, body) {
     const isRestaurant = JSON.parse(body).total > 0;
 
 
@@ -130,38 +130,55 @@ app.post("/add_item", (req, res) => {
 
 app.post('/add_item', (req, res) => {
   let category = req.body.category;
+
+  // Checking if no category was selected
   if (!category || !category.length) {
     const templateVars = {
-      term : req.body.term,
-      error: 'Choose at lieast one category',
+      term: req.body.term,
+      error: 'Choose at least one category',
       movie: false,
       book: false,
       product: false,
-      restaurants: false
+      restaurant: false,
     };
+
     return res.render('add_item', templateVars);
   }
+
   const addItemQuery = {
     text: 'INSERT INTO items(name, done) VALUES ($1, $2) RETURNING id',
     values: [req.body.term, false],
   };
 
+  // Adding item to items table
   db.query(addItemQuery)
     .then(data => {
-      const itemsId = data.rows;
-      // res.json({
-      //   items
-      // });
+      const itemId = data.rows[0].id;
+
+      if (!Array.isArray(category)) {
+        category = [category];
+      }
+
+      // Adding category mapping for every chosen category
+      category.forEach(categoryId => {
+        const addCategoryQuery = {
+          text: 'INSERT INTO category_item_mapping(category_id, item_id) VALUES ($1, $2)',
+          values: [categoryId, itemId],
+        };
+
+        db.query(addCategoryQuery)
+          .then(data => {
+            console.log('Added item with id: ', itemId);
+            res.redirect('home?added_item=' + req.body.term);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      });
     })
     .catch(err => {
       console.log(err);
-      // res
-      //   .status(500)
-      //   .json({
-      //     error: err.message
-      //   });
     });
-  res.render('add_item', templateVars);
 });
 
 
