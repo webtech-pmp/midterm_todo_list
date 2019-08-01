@@ -129,7 +129,6 @@ app.post("/add_item", (req, res) => {
 */
 
 app.post('/add_item', (req, res) => {
-<<<<<<< HEAD
   let category = req.body.category;
   if (!category || !category.length) {
     const templateVars = {
@@ -145,14 +144,12 @@ app.post('/add_item', (req, res) => {
 
   const addInQuery = {
     text: 'INSERT INTO items(name, done) VALUES ($1, $2)',
-=======
   const templateVars = {
     term: req.body.term,
   };
 
   const addItemQuery = {
     text: 'INSERT INTO items(name, done) VALUES ($1, $2) RETURNING id',
->>>>>>> 7c56aa784863528355c27bc1f3693bf9f7537aef
     values: [req.body.term, false],
   };
 

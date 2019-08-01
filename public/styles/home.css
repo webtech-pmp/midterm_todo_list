@@ -9,39 +9,20 @@
 ================================ */
 @import url("https: //fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap");
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#392447), to(#792BF9));
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   background-image: linear-gradient(to bottom, #392447, #792BF9);
   height: 6.0rem;
   font-family: 'Lato', sans-serif;
 }
 
 nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #home {
@@ -55,19 +36,10 @@ nav {
 }
 
 div.user-Info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #avatar {
@@ -93,10 +65,8 @@ p.user {
 ================================ */
 article.wrapper {
   margin: 1rem;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
   grid-auto-rows: minmax(100px, auto);
 }
@@ -106,22 +76,12 @@ article.wrapper .categories {
 }
 
 article.wrapper .toSee_Movie {
-  -ms-grid-column: 1;
   grid-column: 1;
-  -ms-grid-row: 1;
   grid-row: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 article.wrapper .toSee_Movie img {
@@ -129,22 +89,12 @@ article.wrapper .toSee_Movie img {
 }
 
 article.wrapper .toRead_Book {
-  -ms-grid-column: 2;
   grid-column: 2;
-  -ms-grid-row: 1;
   grid-row: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 article.wrapper .toRead_Book img {
@@ -152,25 +102,15 @@ article.wrapper .toRead_Book img {
 }
 
 article.wrapper .toBuy_Product {
-  -ms-grid-column: 1;
   grid-column: 1;
-  -ms-grid-row: 2;
   grid-row: 2;
 }
 
 article.wrapper .toBuy_Product .categories_icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
   margin: 0 auto;
 }
 
@@ -179,22 +119,12 @@ article.wrapper .toBuy_Product .categories_icon img {
 }
 
 article.wrapper .toEat_Restaurants {
-  -ms-grid-column: 2;
   grid-column: 2;
-  -ms-grid-row: 2;
   grid-row: 2;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 article.wrapper .toEat_Restaurants img {
@@ -202,22 +132,18 @@ article.wrapper .toEat_Restaurants img {
 }
 
 .right {
-  -ms-grid-row: 2;
   grid-row: 2;
 }
 
 .left {
-  -ms-grid-row: 1;
   grid-row: 1;
 }
 
 .top {
-  -ms-grid-column: 1;
   grid-column: 1;
 }
 
 .bottom {
-  -ms-grid-column: 2;
   grid-column: 2;
 }
 
@@ -226,18 +152,10 @@ body {
 }
 
 body form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
   margin: 0 auto;
   width: 68vw;
 }
@@ -245,30 +163,6 @@ body form {
 body form textarea#toDoListItem {
   margin-bottom: 1rem;
   border-radius: 4px;
-}
-
-body form ::-webkit-input-placeholder {
-  color: #792BF9;
-  font-weight: bolder;
-  font-size: 2rem;
-  text-align: center;
-  background-color: #AE83FF;
-}
-
-body form :-ms-input-placeholder {
-  color: #792BF9;
-  font-weight: bolder;
-  font-size: 2rem;
-  text-align: center;
-  background-color: #AE83FF;
-}
-
-body form ::-ms-input-placeholder {
-  color: #792BF9;
-  font-weight: bolder;
-  font-size: 2rem;
-  text-align: center;
-  background-color: #AE83FF;
 }
 
 body form ::placeholder {
@@ -282,4 +176,3 @@ body form ::placeholder {
 p {
   color: #FFFFFF;
 }
-/*# sourceMappingURL=home.css.map */
