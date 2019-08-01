@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>Restaurants</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -16,6 +16,22 @@
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <h1>Restaurants</h1>
+      <ul>
+        <% items.map(item => {%>
+          <li>
+            <label>
+              <input type="checkbox" <% if (item.done) { %> checked= "checked" <% } %> />
+              <%= item.name %>
+              <%= item.id %>
+
+              <form action="/api/items/delete" method="POST">
+                <input type="hidden" name="item_id value=" <%= item.id %> />
+                <button type="submit"> Delete </button>
+              </form>
+            </label>
+          </li>
+          <% }) %>
+      </ul>
   </body>
 </html>
