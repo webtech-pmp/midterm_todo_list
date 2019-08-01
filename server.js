@@ -117,15 +117,23 @@ app.post("/select_category", (req, res) => {
     }
   };
 
-  request(yelp, function(error, response, body) {
+  const GOODREADS_TOKEN = 'hcXimhWDj8lzNDDmReOnw'
+  const goodreads = {
+    url: 'https://www.goodreads.com/search.xml?title=' + req.body.item,
+    headers: {
+      'Authorization': 'Bearer' + GOODREADS_TOKEN
+    }
+  };
+
+  request(yelp, function (error, response, body) {
     const isRestaurant = JSON.parse(body).total > 0;
-
-
 
     const templateVars = {
       term: req.body.term,
       error: '',
       movie: isMovie,
+      book: isBook,
+      product: isProduct,
       restaurant: isRestaurant,
     };
 
