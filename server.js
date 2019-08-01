@@ -76,7 +76,7 @@ app.get('/home', (req, res) => {
   };
   res.render("home", templateVars);
 });
-
+// ------ Restaurants-------
 app.get('/category/restaurants', (req, res) => {
   const selectItemsQuery = {
     text: 'SELECT * FROM items WHERE id IN (SELECT item_id FROM category_item_mapping WHERE category_id = $1)',
@@ -88,6 +88,72 @@ app.get('/category/restaurants', (req, res) => {
         items: data.rows,
       };
       res.render("category_restaurants", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({
+          error: err.message
+        });
+    });
+});
+
+// ------ Movies-------
+app.get('/category/movies', (req, res) => {
+  const selectItemsQuery = {
+    text: 'SELECT * FROM items WHERE id IN (SELECT item_id FROM category_item_mapping WHERE category_id = $1)',
+    values: [1],
+  };
+  db.query(selectItemsQuery)
+    .then(data => {
+      const templateVars = {
+        items: data.rows,
+      };
+      res.render("category_movies", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({
+          error: err.message
+        });
+    });
+});
+
+// ------Books-------
+app.get('/category/books', (req, res) => {
+  const selectItemsQuery = {
+    text: 'SELECT * FROM items WHERE id IN (SELECT item_id FROM category_item_mapping WHERE category_id = $1)',
+    values: [2],
+  };
+  db.query(selectItemsQuery)
+    .then(data => {
+      const templateVars = {
+        items: data.rows,
+      };
+      res.render("category_books", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({
+          error: err.message
+        });
+    });
+});
+
+// ------Products-------
+app.get('/category/products', (req, res) => {
+  const selectItemsQuery = {
+    text: 'SELECT * FROM items WHERE id IN (SELECT item_id FROM category_item_mapping WHERE category_id = $1)',
+    values: [3],
+  };
+  db.query(selectItemsQuery)
+    .then(data => {
+      const templateVars = {
+        items: data.rows,
+      };
+      res.render("category_products", templateVars);
     })
     .catch(err => {
       res
@@ -123,7 +189,7 @@ app.post("/select_category", (req, res) => {
   };
   // Check if user term is in API database
   request(yelp, (error, resYelp, body) => {
-    const isRestaurant = JSON.parse(body).total > 0
+    const isRestaurant = JSON.parse(body).total > 0;
 
     request(omdb, (error, resOMdb, body) => {
       const isMovie = JSON.parse(body).response === 'True';
