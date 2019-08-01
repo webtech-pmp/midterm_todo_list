@@ -45,8 +45,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-
-
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
@@ -67,7 +65,7 @@ app.use('/api/items', itemsRoutes(db));
 
 /* ---------------------
 
-Move these afterwards
+Move these afterwards to routes file?
 
 -- -- -- -- -- -- -- -- -- -- - */
 
@@ -80,10 +78,19 @@ app.get('/home', (req, res) => {
 */
 
 app.post('/add_item', (req, res) => {
-  const templateVars = {
-    term: req.body.term,
-  };
-  
+  let category = req.body.category;
+  if (!category || !category.length) {
+    const templateVars = {
+      term : req.body.term,
+      error: 'Choose at lieast one category',
+      movie: false,
+      book: false,
+      product: false,
+      restaurants: false
+    };
+    return res.render('add_item', templateVars);
+  }
+
   const addInQuery = {
     text: 'INSERT INTO items(name, done) VALUES ($1, $2)',
     values: [req.body.term, false],
