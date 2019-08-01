@@ -11,5 +11,29 @@ const router = express.Router();
 module.exports = (db) => {
   router.get("/add_item", (req, res) => {
   });
+  // return router;
+
+
+  /*
+    DELETE ITEM FROM DB
+  */
+
+  router.post('/delete', (req, res) => {
+    const deleteItemQuery = {
+      text: 'DELETE FROM items WHERE id = $1',
+      values: [req.body.item_id],
+    };
+
+    // Add item to items table
+    db.query(deleteItemQuery)
+      .then(data => {
+        console.log('Deleted item with id: ', req.body.item_id);
+        res.redirect('back');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+
   return router;
 };
