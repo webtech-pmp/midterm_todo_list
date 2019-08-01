@@ -107,6 +107,16 @@ app.post("/select_category", (req, res) => {
       'Authorization': 'Bearer ' + YELP_TOKEN
     }
   };
+
+  console.log('inside omdb add_item');
+  const OMDb_TOKEN = '236d915d'
+  const omdb = {
+    url: 'http://www.omdbapi.com/?t=' + req.body.item,
+    headers: {
+      'Authorization': 'Bearer' + OMDb_TOKEN
+    }
+  };
+
   request(yelp, function(error, response, body) {
     const isRestaurant = JSON.parse(body).total > 0;
 
@@ -115,7 +125,7 @@ app.post("/select_category", (req, res) => {
     const templateVars = {
       term: req.body.term,
       error: '',
-
+      movie: isMovie,
       restaurant: isRestaurant,
     };
 
