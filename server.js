@@ -98,7 +98,8 @@ app.get('/category/restaurants', (req, res) => {
 });
 
 //TEST Yelp api call
-app.post("/add_item", (req, res) => {
+app.post("/select_category", (req, res) => {
+  console.log('inside yelp add_item');
   const YELP_TOKEN = '4rgeJl4MWKT0_htmTNmRsp8crNmlf9RNVMlk97Gil4lIqb4InH7sqFB4b8UXiLmVLkerUeodJ20Ru141jC-yLgLrwVk7NiPthMT8KM3ZOTtWvOzpBpXXESmXSXc_XXYx';
   const yelp = {
     url: 'https://api.yelp.com/v3/businesses/search?location=Vancouver&categories=restaurants&term=' + req.body.item,
@@ -106,7 +107,7 @@ app.post("/add_item", (req, res) => {
       'Authorization': 'Bearer ' + YELP_TOKEN
     }
   };
-  request(yelp, function (error, response, body) {
+  request(yelp, function(error, response, body) {
     const isRestaurant = JSON.parse(body).total > 0;
 
 
@@ -130,7 +131,7 @@ app.post("/add_item", (req, res) => {
 
 app.post('/add_item', (req, res) => {
   let category = req.body.category;
-
+  console.log('start of add_item route');
   // Checking if no category was selected
   if (!category || !category.length) {
     const templateVars = {
@@ -144,7 +145,7 @@ app.post('/add_item', (req, res) => {
 
     return res.render('add_item', templateVars);
   }
-
+  console.log("OMG its here!");
   const addItemQuery = {
     text: 'INSERT INTO items(name, done) VALUES ($1, $2) RETURNING id',
     values: [req.body.term, false],
