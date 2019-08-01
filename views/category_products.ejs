@@ -15,7 +15,25 @@
 
   </head>
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
+<body>
+    <!-- PARTIALS -->
+     <% include partials/_header %>
+      <h1>Products</h1>
+        <ul>
+          <% items.map(item => {%>
+            <li>
+              <label>
+                <input type="checkbox" <% if (item.done) { %> checked= "checked" <% } %> />
+                <%= item.name %>
+                <%= item.id %>
+  
+                <form action="/api/items/delete" method="POST">
+                  <input type="hidden" name="item_id" value="<%= item.id %>" />
+                  <button type="submit"> Delete </button>
+                </form>
+              </label>
+            </li>
+            <% }) %>
+        </ul>
+    </body>
+  </html>

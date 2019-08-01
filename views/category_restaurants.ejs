@@ -15,26 +15,25 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
 
   </head>
-
   <body>
-  <!-- PARTIALS -->
-   <% include partials/_header %>
-    <h1>Restaurants</h1>
-      <ul>
-        <% items.map(item => {%>
-          <li>
-            <label>
-              <input type="checkbox" <% if (item.done) { %> checked= "checked" <% } %> />
-              <%= item.name %>
-              <%= item.id %>
-
-              <form action="/api/items/delete" method="POST">
-                <input type="hidden" name="item_id" value="<%= item.id %>" />
-                <button type="submit"> Delete </button>
-              </form>
-            </label>
-          </li>
+      <!-- PARTIALS -->
+      <% include partials/_header %>
+        <h1>Restaurants</h1>
+        <ul>
+          <% items.map(item => { %>
+            <li>
+              <label>
+                <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
+                <%= item.name %>
+                <%= item.id %>
+                
+                <form action="/api/items/delete" method="POST">
+                  <input type="hidden" name="item_id" value="<%= item.id %>" />
+                  <button type="submit">delete</button>
+                </form>
+              </label>
+            </li>
           <% }) %>
-      </ul>
-  </body>
-</html>
+        </ul>
+      </body>
+    </html>

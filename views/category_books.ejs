@@ -16,25 +16,24 @@
   </head>
 
   <body>
-    <h1>Books</h1>
-
-      <ul>
-        <% items.map(item => { %>
-          <li>
-            <label>
-              <input type="checkbox" <% if (item.done)
-               { %> checked="checked" <% } %> />
-               <%= item.name %>
-               <%= item.id %>
-
-               <form action="/api/items/delete" method= "POST">
-                 <input type="hidden" name="item_id" value="<%= item.id %>" />
-                 <button type="submit">Delete</button>
-               </form>
-            </label>
-          </li>
-        <% } ) %>
-      </ul>
-
-  </body>
-</html>
+      <!-- PARTIALS -->
+      <% include partials/_header %>
+        <h1>Books</h1>
+        <ul>
+          <% items.map(item => { %>
+            <li>
+              <label>
+                <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
+                <%= item.name %>
+                <%= item.id %>
+                
+                <form action="/api/items/delete" method="POST">
+                  <input type="hidden" name="item_id" value="<%= item.id %>" />
+                  <button type="submit">delete</button>
+                </form>
+              </label>
+            </li>
+          <% }) %>
+        </ul>
+      </body>
+    </html>
