@@ -122,13 +122,13 @@ app.post("/select_category", (req, res) => {
     url: 'https://www.goodreads.com/search.xml?key=' + GOODREADS_TOKEN + '&q=' + req.body.term
   };
   // Check if user term is in API database
-  request(yelp, (error, res, body) => {
+  request(yelp, (error, resYelp, body) => {
     const isRestaurant = JSON.parse(body).total > 0
 
-    request(omdb, (error, res, body) => {
+    request(omdb, (error, resOMdb, body) => {
       const isMovie = JSON.parse(body).response === 'True';
 
-      request(goodreads, (error, res, body) => {
+      request(goodreads, (error, resGoodreads, body) => {
 
         const isBook = parser.parse(body).GoodreadsResponse.search['total-results'] > 0;
 
