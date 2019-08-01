@@ -40,7 +40,7 @@
         Products
       </label>
       <label>
-        <input type="checkbox" name="category" value="4" />
+        <input type="checkbox" name="category" value="4" <% if(restaurant) { %>checked="checked"<% } %>/>
         Restaurants
       </label>
       <button type="submit" class="btn btn-primary">Submit</button>
