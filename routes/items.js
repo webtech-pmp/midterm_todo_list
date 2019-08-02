@@ -16,12 +16,6 @@ module.exports = (db) => {
   */
 
   router.post('/delete', (req, res) => {
-  //------
-    const deleteCategoryItemMapping = {
-      text: 'DELETE FROM category_item_mapping WHERE item_id = $1',
-      value: [req.body.item_id]
-    }; //------
-   
     const deleteItemQuery = {
       text: 'DELETE FROM items WHERE id = $1',
       values: [req.body.item_id],

@@ -184,7 +184,7 @@ app.get("/lists", (req, res) => {
           error: err.message
         });
     });
-})
+});
 
 
 // API Calls
