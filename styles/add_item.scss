@@ -1,6 +1,16 @@
 @import './partials/header';
 @import './partials/categories_cards';
 
-// body {
-//   background-color: $purple;
-// }
+body {
+  background-color: $purple;
+
+  h1 {
+  color: white;
+  margin: 30px;
+  }
+.add-item {
+  color: white;
+  margin: 30px;
+}
+
+}

@@ -23,13 +23,13 @@
        <!-- <% include partials/_categories_cards %> -->
     <!-- Partials -->
    
-    <h2>Select category</h2>
+    <!-- <h2>Select category</h2> -->
     <% if (error) { %>
       <div class="error"><%= error %></div>
     <% } %>
    
 
-    <form method="POST" action="/add_item">
+    <form class="add-item" method="POST" action="/add_item">
       <input type="hidden" name="term" value="<%= term %>" />
       <label>
         <input type="checkbox" class="Movies" name="category" value="1" <% if(movie) { %>checked="checked"<% } %> />
