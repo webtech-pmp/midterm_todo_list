@@ -28,18 +28,18 @@
       <%console.log(movies);%>
       <ul>
         <% movies.map(item => { %>
-          <li>
-            <label>
-              <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
-              <%= item.name %>
-              <%= item.id %>
-
-              <form action="/api/items/delete" method="POST">
-                <input type="hidden" name="item_id" value="<%= item.id %>" />
-                <button type="submit">delete</button>
-              </form>
-            </label>
-          </li>
+          <li class="list_item">
+              <label>
+                <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
+                <span class="term_name" ><%= item.name %></span>
+                
+                
+                <form action="/api/items/delete" method="POST">
+                  <input type="hidden" name="item_id" value="<%= item.id %>" />
+                  <button class="btn btn-primary" type="submit">Delete</button>
+                </form>
+              </label>
+            </li>
         <% }) %>
       </ul>
 
@@ -50,18 +50,18 @@
 
         <ul>
           <% books.map(item => { %>
-            <li>
-              <label>
-                <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
-                <%= item.name %>
-                <%= item.id %>
-
-                <form action="/api/items/delete" method="POST">
-                  <input type="hidden" name="item_id" value="<%= item.id %>" />
-                  <button type="submit">delete</button>
-                </form>
-              </label>
-            </li>
+            <li class="list_item">
+                <label>
+                  <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
+                  <span class="term_name" ><%= item.name %></span>
+                  
+                  
+                  <form action="/api/items/delete" method="POST">
+                    <input type="hidden" name="item_id" value="<%= item.id %>" />
+                    <button class="btn btn-primary" type="submit">Delete</button>
+                  </form>
+                </label>
+              </li>
           <% }) %>
         </ul>
 
@@ -71,18 +71,18 @@
 
         <ul>
           <% products.map(item => {%>
-            <li>
-              <label>
-                <input type="checkbox" <% if (item.done) { %> checked= "checked" <% } %> />
-                <%= item.name %>
-                <%= item.id %>
-
-                <form action="/api/items/delete" method="POST">
-                  <input type="hidden" name="item_id" value="<%= item.id %>" />
-                  <button type="submit"> Delete </button>
-                </form>
-              </label>
-            </li>
+            <li class="list_item">
+                <label>
+                  <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
+                  <span class="term_name" ><%= item.name %></span>
+                  
+                  
+                  <form action="/api/items/delete" method="POST">
+                    <input type="hidden" name="item_id" value="<%= item.id %>" />
+                    <button class="btn btn-primary" type="submit">Delete</button>
+                  </form>
+                </label>
+              </li>
             <% }) %>
         </ul>
 
@@ -90,18 +90,18 @@
       <% const restaurants = items.filter(item => item.category_name == 'Restaurants');%>
          <ul>
           <% restaurants.map(item => { %>
-            <li>
-              <label>
-                <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
-                <%= item.name %>
-                <%= item.id %>
-
-                <form action="/api/items/delete" method="POST">
-                  <input type="hidden" name="item_id" value="<%= item.id %>" />
-                  <button type="submit">delete</button>
-                </form>
-              </label>
-            </li>
+            <li class="list_item">
+                <label>
+                  <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
+                  <span class="term_name" ><%= item.name %></span>
+                  
+                  
+                  <form action="/api/items/delete" method="POST">
+                    <input type="hidden" name="item_id" value="<%= item.id %>" />
+                    <button class="btn btn-primary" type="submit">Delete</button>
+                  </form>
+                </label>
+              </li>
           <% }) %>
         </ul>
       </body>
