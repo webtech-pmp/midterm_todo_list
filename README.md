@@ -65,7 +65,7 @@ A smart, auto-categorizing todo list app. The user simply has to add the name of
 
 ## Final Product
 
-!["Screenshot of login page - mobile"](https://github.com/webtech-pmp/midterm_todo_list/blob/master/docs/Login-page-Mobile-500H.png)
+!["Screenshot of login page - mobile"](https://github.com/webtech-pmp/midterm_todo_list/blob/master/docs/Login-page-on-hover-Mobile-500H.png)
 
 > Figure 1.a: Login page (mobile)
 
@@ -75,10 +75,3 @@ A smart, auto-categorizing todo list app. The user simply has to add the name of
 
 !["Screenshot of login page - mobile -- on hover"](https://github.com/webtech-pmp/midterm_todo_list/blob/master/docs/Home-page-Mobile-500H.png)
 
-> Figure 2.a: Home page (mobile)
-
-> Figure 2.b: Home page (tablet)
-
-> Figure 2.c: Home page (desktop)
-
-> Figure 3.a:
