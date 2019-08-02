@@ -14,14 +14,14 @@
 
 .top {
   @include category-card;
-  // flex-direction: row;
-  flex-direction: column;
+  flex-direction: row;
+  // flex-direction: column;
 }
 
 .bottom {
   @include category-card;
-  flex-direction: column;
-  // flex-direction: row;
+  // flex-direction: column;
+  flex-direction: row;
 }
 
 .categories-card {
@@ -41,6 +41,25 @@
   }
 }
 
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: $lightLavender;
+}
+
+/* mouse over link */
+a:hover {
+  color: $lightLavender;
+}
+
+/* selected link */
+a:active {
+  color: white;
+}
 
 /* Tablet: minimum width of 768px to maximum width of 1024px */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -71,9 +90,5 @@
   .bottom {
     @include category-card;
     flex-direction: row;
-  }
-
-  .categories-card {
-    //  width:100%;
   }
 }
