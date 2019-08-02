@@ -22,15 +22,15 @@
       <h1>Movies</h1>
       <ul>
         <% items.map(item => { %>
-          <li>
+          <li class="list_item">
             <label>
               <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
-              <%= item.name %>
-              <%= item.id %>
+              <span class="term_name" ><%= item.name %></span>
+              
               
               <form action="/api/items/delete" method="POST">
                 <input type="hidden" name="item_id" value="<%= item.id %>" />
-                <button type="submit">delete</button>
+                <button class="btn btn-primary" type="submit">Delete</button>
               </form>
             </label>
           </li>

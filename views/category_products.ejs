@@ -20,21 +20,21 @@
     <!-- PARTIALS -->
      <% include partials/_header %>
       <h1>Products</h1>
-        <ul>
-          <% items.map(item => {%>
-            <li>
+      <ul>
+          <% items.map(item => { %>
+            <li class="list_item">
               <label>
-                <input type="checkbox" <% if (item.done) { %> checked= "checked" <% } %> />
-                <%= item.name %>
-                <%= item.id %>
-  
+                <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
+                <span class="term_name" ><%= item.name %></span>
+                
+                
                 <form action="/api/items/delete" method="POST">
                   <input type="hidden" name="item_id" value="<%= item.id %>" />
-                  <button type="submit"> Delete </button>
+                  <button class="btn btn-primary" type="submit">Delete</button>
                 </form>
               </label>
             </li>
-            <% }) %>
+          <% }) %>
         </ul>
     </body>
   </html>

@@ -4,6 +4,29 @@ body {
   background-color: #EEE;
 
   h1 {
+    margin-left: 20px;
     color: #ffffff;
   }
+}
+
+.list_item {
+  list-style: none;
+
+  .term_name {
+    margin: 0 10px;
+    color: white;
+    font-size: 28px;
+  }
+
+  form {
+    display: inline-block;
+  }
+
+  .btn {
+    width: 80px;
+    display: inline-block;
+    
+  }
+
+
 }
