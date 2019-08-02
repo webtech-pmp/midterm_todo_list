@@ -1,111 +1,136 @@
 @import 'fonts';
 @import 'colors';
 
+@mixin category-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
 article.wrapper {
-  margin: 1rem;
+  margin: 2rem auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   grid-auto-rows: minmax(100px, auto);
-  font-size: 30px;
+  justify-items: center;
+  //font-size: 30px;
+  font-size: 2rem;
+  text-align: center;
+  // max-width: 30rem;
+
 
   .categories {
-    width: 150px;
+    // width: 150px;
+    width: 100%;
   }
 
   .toSee_Movie {
     grid-column: 1;
     grid-row: 1;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    .categories_icon {
+      @include category-card;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      // align-content: center;
+      // img {
+      //   width: 150px;
+      // }
+    }
 
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 20px;
-    max-width: 300px;
+    // max-width: 300px;
 
-    img {
-      width: 150px;
-    }
   }
 
   .toRead_Book {
     grid-column: 2;
     grid-row: 1;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    .categories_icon {
+      // @include: category-card;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      // img {
+      //   // width: 150px;
+      //   width: 50%;
+      // }
+    }
 
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 20px;
-    max-width: 300px;
+    // max-width: 300px;
 
-    img {
-      width: 150px;
-    }
   }
 
   .toBuy_Product {
     grid-column: 1;
     grid-row: 2;
 
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 20px;
-    max-width: 300px;
+    // max-width: 300px;
 
     .categories_icon {
-
+      // @include: category-card;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-content: center;
-      margin: 0 auto;
 
-      img {
-        width: 150px;
-      }
+      // img {
+      //   width: 150px;
+      // }
+
     }
   }
+}
 
-  .toEat_Restaurants {
-    grid-column: 2;
-    grid-row: 2;
+.toEat_Restaurants {
+  grid-column: 2;
+  grid-row: 2;
 
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  // max-width: 300px;
+
+  categories_icon {
+    // @include: category-card;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
 
-    background: rgba(255,255,255,0.1);
-    padding: 20px;
-    border-radius: 20px;
-    max-width: 300px;
-    
-    img {
-      width: 150px;
-    }
+    // img {
+    //   width: 150px;
+    // }
 
   }
 
+}
 
-}
 .right {
-  grid-row:2;
+  grid-row: 2;
 }
+
 .left {
-  grid-row:1;
+  grid-row: 1;
 }
+
 .top {
   grid-column: 1;
 }
+
 .bottom {
   grid-column: 2;
 }
-
