@@ -1,5 +1,6 @@
-LHL Node Skeleton
+Smart TODO List
 =========
+A smart, auto-categorizing todo list app. The user simply has to add the name of the thing, and it gets put into the correct list.
 
 ## Project Setup
 
@@ -12,6 +13,8 @@ LHL Node Skeleton
 6. Verify that the skeleton code now shows up in your repo on GitHub
 
 ## Getting Started
+
+- Install all dependencies (using the `npm install` command).
 
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`.
 2. Update the .env file with your correct local information 
@@ -45,7 +48,28 @@ LHL Node Skeleton
 - dotenv
 - ejs
 - express
+- fast-xml-parser
 - morgan
 - node-sass-middleware
+- pg
 - pg-native
 - request
+
+## Final Product
+
+> Figure 1.a: Login page (mobile)
+
+
+> Figure 1.b: Login page (mobile) -- on hover
+
+
+> Figure 2.a: Home page (mobile)
+
+
+> Figure 2.b: Home page (tablet)
+
+
+> Figure 2.c: Home page (desktop) 
+
+
+> Figure 3.a: 
