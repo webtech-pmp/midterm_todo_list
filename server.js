@@ -164,6 +164,29 @@ app.get('/category/products', (req, res) => {
     });
 });
 
+// ------ Movies, Books, Products, Restaurants -------
+
+app.get("/lists", (req, res) => {
+  const selectItemsQuery = {
+    text: 'SELECT items.*, categories.name AS category_name FROM items JOIN category_item_mapping ON category_item_mapping.item_id=items.id JOIN categories ON categories.id = category_item_mapping.category_id;',
+  };
+  db.query(selectItemsQuery)
+    .then(data => {
+      const templateVars = {
+        items: data.rows,
+      };
+      res.render("lists", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({
+          error: err.message
+        });
+    });
+})
+
+
 // API Calls
 app.post("/select_category", (req, res) => {
   // Restaurant call
