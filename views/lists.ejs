@@ -46,7 +46,7 @@
       <!-- BOOKS -->
 
         <h1>Books</h1>
-              <% const books = items.filter(item => item.category_name == 'Books');%>
+        <% const books = items.filter(item => item.category_name == 'Books');%>
 
         <ul>
           <% books.map(item => { %>
@@ -94,7 +94,6 @@
                 <label>
                   <input type="checkbox" <% if (item.done) { %> checked="checked" <% } %> />
                   <span class="term_name" ><%= item.name %></span>
-                  
                   
                   <form action="/api/items/delete" method="POST">
                     <input type="hidden" name="item_id" value="<%= item.id %>" />
