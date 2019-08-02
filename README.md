@@ -78,5 +78,3 @@ A smart, auto-categorizing todo list app. The user simply has to add the name of
 > Figure 2.c: Home page (desktop)
 
 > Figure 3.a:
-
-> Figure 4:
